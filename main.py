@@ -28,25 +28,13 @@ template_id = os.environ["TEMPLATE_ID"]
 def get_weather():
     response = requests.get("http://t.weather.sojson.com/api/weather/city/101021300")
     
-    if response.status_code == 200:
-        data = response.json()
-
-        print(f"-------today: {today}")
-        
-        for day in data['data']['forecast']:
-            if day['ymd'] == today:
-                date = day['date']
-                high_temp = int(day['high'].split()[1][:-1])  # 提取最高气温的数值部分
-                low_temp = int(day['low'].split()[1][:-1])  # 提取最低气温的数值部分
-                weather_type = day['type']
-                
-                average_temp = (high_temp + low_temp) / 2
-
-                print(f"++++++++wea:{weather_type}, temp:{average_temp}")
-                
-                return weather_type, average_temp
+    data = response.json()
     
-    return None
+    wendu = data['data'].get('wendu')  # 提取 data 项目中的 wendu 数据
+    
+    type = data['data']['forecast'][0].get('type')  # 提取 forecast 中第一天的 type 数据
+            
+    return type, wendu
 
 
 
