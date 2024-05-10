@@ -41,6 +41,8 @@ def get_weather():
                 weather_type = day['type']
                 
                 average_temp = (high_temp + low_temp) / 2
+
+                print(f"++++++++wea:{weather_type}, temp:{average_temp}")
                 
                 return weather_type, average_temp
     
