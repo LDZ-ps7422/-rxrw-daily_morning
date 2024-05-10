@@ -30,6 +30,8 @@ def get_weather():
     
     if response.status_code == 200:
         data = response.json()
+
+        print(f"-------today: {today}")
         
         for day in data['data']['forecast']:
             if day['ymd'] == today:
