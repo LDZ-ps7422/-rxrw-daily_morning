@@ -40,12 +40,7 @@ def get_weather():
                 
                 average_temp = (high_temp + low_temp) / 2
                 
-                result = {
-                    'weather_type': weather_type,
-                    'temperature': average_temp
-                }
-                
-                return result
+                return weather_type, average_temp
     
     return None
 
