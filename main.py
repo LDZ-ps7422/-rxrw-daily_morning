@@ -6,7 +6,8 @@ import requests
 import os
 import random
 
-today = datetime.now()
+#today = datetime.now()
+today.strftime("%Y-%m-%d")
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 birthday = os.environ['BIRTHDAY']
@@ -18,11 +19,37 @@ user_id = os.environ["USER_ID"]
 template_id = os.environ["TEMPLATE_ID"]
 
 
+#def get_weather():
+#  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
+#  res = requests.get(url).json()
+#  weather = res['data']['list'][0]
+#  return weather['weather'], math.floor(weather['temp'])
+
 def get_weather():
-  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
-  res = requests.get(url).json()
-  weather = res['data']['list'][0]
-  return weather['weather'], math.floor(weather['temp'])
+    response = requests.get("http://t.weather.sojson.com/api/weather/city/101021300")
+    
+    if response.status_code == 200:
+        data = response.json()
+        
+        for day in data['data']['forecast']:
+            if day['ymd'] == today:
+                date = day['date']
+                high_temp = int(day['high'].split()[1][:-1])  # 提取最高气温的数值部分
+                low_temp = int(day['low'].split()[1][:-1])  # 提取最低气温的数值部分
+                weather_type = day['type']
+                
+                average_temp = (high_temp + low_temp) / 2
+                
+                result = {
+                    'weather_type': weather_type,
+                    'temperature': average_temp
+                }
+                
+                return result
+    
+    return None
+
+
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
