@@ -39,7 +39,7 @@ def get_weather():
 
 
 def get_count():
-  print(f"------today: {today}")
+  print(f"----------start date: {start_date}")
   delta = datetime.now() - datetime.strptime(start_date, "%Y-%m-%d")
   return delta.days
 
