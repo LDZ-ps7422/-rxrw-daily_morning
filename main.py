@@ -77,5 +77,5 @@ data = {
     "city":{"value":city},
     "birthday_left":{"value":get_birthday()},
 }
-res = wm.send_template(user_id, template_id[1], data)
+res = wm.send_template(user_id, template_id, data)
 print(res)
