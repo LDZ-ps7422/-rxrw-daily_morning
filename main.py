@@ -8,15 +8,20 @@ import random
 
 today_date = datetime.now().date()
 today = today_date.strftime("%Y-%m-%d")
-start_date = os.environ['START_DATE']
-city = os.environ['CITY']
-birthday = os.environ['BIRTHDAY']
+# start_date = os.environ['START_DATE']
+# city = os.environ['CITY']
+# birthday = os.environ['BIRTHDAY']
+# app_id = os.environ["APP_ID"]
+# app_secret = os.environ["APP_SECRET"]
+# user_id = os.environ["USER_ID"]
+# template_id = os.environ["TEMPLATE_ID"]
 
-app_id = os.environ["APP_ID"]
-app_secret = os.environ["APP_SECRET"]
-
-user_id = os.environ["USER_ID"]
-template_id = os.environ["TEMPLATE_ID"]
+start_date = "2024-04-16"
+birthday = "01-16"
+app_id = "wxfb7f0aaa526b0e04"
+app_secret = "98f6b1380eea85e0c4053d3bb751a84e"
+user_id = "osJgu6yKrvsSeCm2GUVMbRr5mguc"
+template_id = "WeOCUO_orubNZwp6Gh9B4v5sXoRmMVFCc8ZRGD8a6Vk"
 
 
 #def get_weather():
