@@ -5,6 +5,7 @@ from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import requests
 import os
 import random
+import calendar
 
 today = datetime.now()
 # start_date = os.environ['START_DATE']
@@ -17,10 +18,15 @@ today = datetime.now()
 
 start_date = "2024-04-16"
 birthday = "01-16"
+btdymd = "1998-01-16"
+city = "上海"
 app_id = "wxfb7f0aaa526b0e04"
 app_secret = "98f6b1380eea85e0c4053d3bb751a84e"
 user_id = "osJgu6yKrvsSeCm2GUVMbRr5mguc"
-template_id = "WeOCUO_orubNZwp6Gh9B4v5sXoRmMVFCc8ZRGD8a6Vk"
+template_id = {
+    "WeOCUO_orubNZwp6Gh9B4v5sXoRmMVFCc8ZRGD8a6Vk",
+    "ROJ35p8s67vw4Ebq7FU3EtL3KHlyhpAUHMIfqtEpI6M"
+}
 
 
 #def get_weather():
@@ -41,26 +47,38 @@ def get_count():
   return delta.days
 
 def get_birthday():
-  print(f"----------today: {today}")
   next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
 
-def get_words():
-  words = requests.get("https://api.shadiao.pro/chp")
-  if words.status_code != 200:
-    return get_words()
-  return words.json()['data']['text']
+def day_count():
+    delta = datetime.now() - datetime.strptime(btdymd, "%Y-%m-%d")
+    return delta.days
 
-def get_random_color():
-  return "#%06x" % random.randint(0, 0xFFFFFF)
-
+def get_date():
+    date_obj = datetime.now()
+    year = date_obj.year
+    month = date_obj.month
+    day = date_obj.day
+    month_names = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二']
+    chinese_month = month_names[month - 1]
+    chinese_day = calendar.day_name[date_obj.weekday()]
+    chinese_date = f"{year}年{month}月{day}日"
+    return chinese_date
 
 client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature = get_weather()
-data = {"weather":{"value":wea},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
+data = {
+    "weather":{"value":wea},
+    "date":{"value":get_date()},
+    "temperature":{"value":f"{temperature}°C"},
+    "love_days":{"value":get_count()},
+    "count":{"value":day_count()},
+    "city":{"value":city},
+    "birthday_left":{"value":get_birthday()},
+}
 res = wm.send_template(user_id, template_id, data)
 print(res)
