@@ -6,8 +6,7 @@ import requests
 import os
 import random
 
-today_date = datetime.now().date()
-today = today_date.strftime("%Y-%m-%d")
+today = datetime.now()
 # start_date = os.environ['START_DATE']
 # city = os.environ['CITY']
 # birthday = os.environ['BIRTHDAY']
@@ -32,23 +31,17 @@ template_id = "WeOCUO_orubNZwp6Gh9B4v5sXoRmMVFCc8ZRGD8a6Vk"
 
 def get_weather():
     response = requests.get("http://t.weather.sojson.com/api/weather/city/101021300")
-    
-    data = response.json()
-    
-    wendu = data['data'].get('wendu')  # 提取 data 项目中的 wendu 数据
-    
-    type = data['data']['forecast'][0].get('type')  # 提取 forecast 中第一天的 type 数据
-            
+    data = response.json()    
+    wendu = data['data'].get('wendu')  # 提取 data 项目中的 wendu 数据    
+    type = data['data']['forecast'][0].get('type')  # 提取 forecast 中第一天的 type 数据            
     return type, wendu
 
-
-
 def get_count():
-  print(f"----------start date: {start_date}")
   delta = datetime.now() - datetime.strptime(start_date, "%Y-%m-%d")
   return delta.days
 
 def get_birthday():
+  print(f"----------today: {today}")
   next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
