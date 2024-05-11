@@ -23,7 +23,7 @@ city = "上海"
 app_id = "wxfb7f0aaa526b0e04"
 app_secret = "98f6b1380eea85e0c4053d3bb751a84e"
 user_id = "osJgu6yKrvsSeCm2GUVMbRr5mguc"
-template_id = "zFG8qW5E8Kzr_uJi0CPswXGakyXnN817vwrnpeW_w58"
+template_id = "aFrrJOMl8HIDLpGV0t7n3EZ4LupMea_NfHeaFIqjj-0"
 
 
 #def get_weather():
