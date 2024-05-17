@@ -22,7 +22,7 @@ btdymd = "1998-01-16"
 city = "上海"
 app_id = "wxfb7f0aaa526b0e04"
 app_secret = "98f6b1380eea85e0c4053d3bb751a84e"
-user_ids = ["osJgu6yKrvsSeCm2GUVMbRr5mguc"]
+user_ids = ["osJgu6yKrvsSeCm2GUVMbRr5mguc", "osJgu66-2r_LKfFmdu7_lzCcH8HI"]
 template_id = "m_IUjJQb7nwatu0WlrXYoqFEwhwkPC_xydvaHxDt9Ak"
 
 
