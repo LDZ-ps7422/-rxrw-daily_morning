@@ -22,7 +22,7 @@ btdymd = "1998-01-16"
 city = "上海"
 app_id = "wxfb7f0aaa526b0e04"
 app_secret = "98f6b1380eea85e0c4053d3bb751a84e"
-user_id = "osJgu6yKrvsSeCm2GUVMbRr5mguc"
+user_ids = ["osJgu6yKrvsSeCm2GUVMbRr5mguc"]
 template_id = "m_IUjJQb7nwatu0WlrXYoqFEwhwkPC_xydvaHxDt9Ak"
 
 
@@ -77,5 +77,7 @@ data = {
     "city":{"value":city},
     "birthday_left":{"value":get_birthday()},
 }
-res = wm.send_template(user_id, template_id, data)
-print(res)
+
+for user_id in user_ids :
+    res = wm.send_template(user_id, template_id, data)
+    print(res)
