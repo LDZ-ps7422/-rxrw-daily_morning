@@ -22,8 +22,8 @@ btdymd = "2000-09-06"
 city = "仙桃"
 app_id = "wxfb7f0aaa526b0e04"
 app_secret = "98f6b1380eea85e0c4053d3bb751a84e"
-user_ids = ["osJgu6yKrvsSeCm2GUVMbRr5mguc", "osJgu6ywGS3w_lx2LXs6evJdeE4I"]
-template_id = "8xRGAOzG6jPHNlxStkeji1Pm5kPzNTzpMp7VNDRy968"
+user_ids = ["osJgu6yKrvsSeCm2GUVMbRr5mguc"]
+template_id = "2Llto0Lepz5fLgzfAzwrK4j6rbOyi2hNX_EtW2qUXzM"
 
 #def get_weather():
 #  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
