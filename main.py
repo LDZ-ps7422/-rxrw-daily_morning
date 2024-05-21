@@ -23,7 +23,7 @@ city = "仙桃"
 app_id = "wxfb7f0aaa526b0e04"
 app_secret = "98f6b1380eea85e0c4053d3bb751a84e"
 user_ids = ["osJgu6yKrvsSeCm2GUVMbRr5mguc"]
-template_id = "p2RnEnESAulHBbbJ5z8OnAdj2jLFRd9eT6XF-nhd7PA"
+template_id = "zrkptqElVT1yMujwoxt4hBQK2XQPN5Xur-f0-nB_ahI"
 
 #def get_weather():
 #  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
@@ -67,15 +67,24 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature = get_weather()
+text = f" 🗓 {get_date()}\n\n\
+📍 {city} {f"{temperature}°C"} {wea}\n\n\
+🐣 宝贝来到世界的第{day_count()}天\n\n\
+🎂 还有{get_birthday()}天过生日喽\n\n\
+💕 已经认识宝贝{get_count()}天了\n\n\
+❤️  早安  今天也要开心噢~  ❤️"
 data = {
-    "weather":{"value":wea},
-    "date":{"value":get_date()},
-    "temperature":{"value":f"{temperature}°C"},
-    "love_days":{"value":get_count()},
-    "count":{"value":day_count()},
-    "city":{"value":city},
-    "birthday_left":{"value":get_birthday()},
+    "text":{"value":text}
 }
+# data = {
+#     "weather":{"value":wea},
+#     "date":{"value":get_date()},
+#     "temperature":{"value":f"{temperature}°C"},
+#     "love_days":{"value":get_count()},
+#     "count":{"value":day_count()},
+#     "city":{"value":city},
+#     "birthday_left":{"value":get_birthday()},
+# }
 
 for user_id in user_ids :
     res = wm.send_template(user_id, template_id, data)
