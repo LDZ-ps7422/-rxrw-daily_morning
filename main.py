@@ -73,9 +73,8 @@ wea, temperature = get_weather()
 # 🎂 还有{get_birthday()}天过生日喽\n\n\
 # 💕 已经认识宝贝{get_count()}天了\n\n\
 # ❤️  早安  今天也要开心噢~  ❤️"
-text = f"TEST111"
 data = {
-    "text":{"value":text}
+    "text":{"value":f"TEST111"}
 }
 # data = {
 #     "weather":{"value":wea},
