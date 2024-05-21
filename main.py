@@ -17,14 +17,13 @@ today = datetime.now()
 # template_id = os.environ["TEMPLATE_ID"]
 
 start_date = "2024-04-16"
-birthday = "01-16"
-btdymd = "2000-01-16"
+birthday = "09-06"
+btdymd = "2000-09-06"
 city = "仙桃"
 app_id = "wxfb7f0aaa526b0e04"
 app_secret = "98f6b1380eea85e0c4053d3bb751a84e"
 user_ids = ["osJgu6yKrvsSeCm2GUVMbRr5mguc"]
-template_id = "m_IUjJQb7nwatu0WlrXYoqFEwhwkPC_xydvaHxDt9Ak"
-
+template_id = "8xRGAOzG6jPHNlxStkeji1Pm5kPzNTzpMp7VNDRy968"
 
 #def get_weather():
 #  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
@@ -36,7 +35,7 @@ def get_weather():
     response = requests.get("http://t.weather.sojson.com/api/weather/city/101021300")
     data = response.json()    
     wendu = data['data'].get('wendu')  # 提取 data 项目中的 wendu 数据    
-    type = data['data']['forecast'][0].get('type')  # 提取 forecast 中第一天的 type 数据            
+    type = data['data']['forecast'][0].get('type')  # 提取 forecast 中第一天的 type 数据
     return type, wendu
 
 def get_count():
