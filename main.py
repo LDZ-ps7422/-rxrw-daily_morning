@@ -1,4 +1,4 @@
-from datetime import date, datetime
+ from datetime import date, datetime
 import math
 from wechatpy import WeChatClient
 from wechatpy.client.api import WeChatMessage, WeChatTemplate
@@ -18,11 +18,11 @@ today = datetime.now()
 
 start_date = "2024-04-16"
 birthday = "01-16"
-btdymd = "1998-01-16"
-city = "上海"
+btdymd = "2000-01-16"
+city = "仙桃"
 app_id = "wxfb7f0aaa526b0e04"
 app_secret = "98f6b1380eea85e0c4053d3bb751a84e"
-user_ids = ["osJgu6yKrvsSeCm2GUVMbRr5mguc", "osJgu66-2r_LKfFmdu7_lzCcH8HI"]
+user_ids = ["osJgu6yKrvsSeCm2GUVMbRr5mguc"]
 template_id = "m_IUjJQb7nwatu0WlrXYoqFEwhwkPC_xydvaHxDt9Ak"
 
 
