@@ -23,7 +23,7 @@ city = "仙桃"
 app_id = "wxfb7f0aaa526b0e04"
 app_secret = "98f6b1380eea85e0c4053d3bb751a84e"
 user_ids = ["osJgu6yKrvsSeCm2GUVMbRr5mguc"]
-template_id = "L29DurZwS3LjKVuKOP-s9qCczrJdvhJiue_FJc8EtWU"
+template_id = "XqE9qS_hMasj4Py1RtU9vn-3HC6h1GdkeOSmwu47X6M"
 
 #def get_weather():
 #  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
